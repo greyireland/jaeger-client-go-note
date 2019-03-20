@@ -48,6 +48,7 @@ type udpSender struct {
 }
 
 // NewUDPTransport creates a reporter that submits spans to jaeger-agent
+// 默认发送数据到 localhost:6831
 func NewUDPTransport(hostPort string, maxPacketSize int) (Transport, error) {
 	if len(hostPort) == 0 {
 		hostPort = fmt.Sprintf("%s:%d", DefaultUDPSpanServerHost, DefaultUDPSpanServerPort)
