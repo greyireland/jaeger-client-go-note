@@ -42,6 +42,7 @@ type TraceID struct {
 type SpanID uint64
 
 // SpanContext represents propagated span identity and state
+// 自定义spancontext
 type SpanContext struct {
 	// traceID represents globally unique ID of the trace.
 	// Usually generated as a random number.

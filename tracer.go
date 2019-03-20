@@ -235,9 +235,9 @@ func (t *Tracer) startSpanWithOptions(
 		}
 	}
 	if !hasParent && isValidReference(parent) {
-		// If ChildOfRef wasn't found but a FollowFromRef exists, use the context from
-		// the FollowFromRef as the parent
-		hasParent = true
+			// If ChildOfRef wasn't found but a FollowFromRef exists, use the context from
+			// the FollowFromRef as the parent
+			hasParent = true
 	}
 
 	rpcServer := false

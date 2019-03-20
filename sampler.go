@@ -57,6 +57,7 @@ type Sampler interface {
 // -----------------------
 
 // ConstSampler is a sampler that always makes the same decision.
+// 静态采样器
 type ConstSampler struct {
 	Decision bool
 	tags     []Tag
@@ -93,6 +94,7 @@ func (s *ConstSampler) Equal(other Sampler) bool {
 
 // ProbabilisticSampler is a sampler that randomly samples a certain percentage
 // of traces.
+// 百分比采样器
 type ProbabilisticSampler struct {
 	samplingRate     float64
 	samplingBoundary uint64
@@ -152,6 +154,7 @@ func (s *ProbabilisticSampler) Equal(other Sampler) bool {
 
 // -----------------------
 
+// 频率限制采样器
 type rateLimitingSampler struct {
 	maxTracesPerSecond float64
 	rateLimiter        utils.RateLimiter
@@ -373,6 +376,7 @@ func (s *adaptiveSampler) update(strategies *sampling.PerOperationSamplingStrate
 // RemotelyControlledSampler is a delegating sampler that polls a remote server
 // for the appropriate sampling strategy, constructs a corresponding sampler and
 // delegates to it for sampling decisions.
+// 远程调节采样器
 type RemotelyControlledSampler struct {
 	// These fields must be first in the struct because `sync/atomic` expects 64-bit alignment.
 	// Cf. https://github.com/uber/jaeger-client-go/issues/155, https://goo.gl/zW7dgq

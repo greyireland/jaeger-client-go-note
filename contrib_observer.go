@@ -20,6 +20,7 @@ import (
 
 // ContribObserver can be registered with the Tracer to receive notifications
 // about new Spans. Modelled after github.com/opentracing-contrib/go-observer.
+// 新的观察器
 type ContribObserver interface {
 	// Create and return a span observer. Called when a span starts.
 	// If the Observer is not interested in the given span, it must return (nil, false).

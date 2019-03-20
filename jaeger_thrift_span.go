@@ -24,6 +24,7 @@ import (
 )
 
 // BuildJaegerThrift builds jaeger span based on internal span.
+// 转换为jaeger span
 func BuildJaegerThrift(span *Span) *j.Span {
 	span.Lock()
 	defer span.Unlock()

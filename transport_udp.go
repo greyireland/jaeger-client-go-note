@@ -34,6 +34,7 @@ const emitBatchOverhead = 30
 
 var errSpanTooLarge = errors.New("Span is too large")
 
+//udp发送器
 type udpSender struct {
 	client          *utils.AgentClientUDP
 	maxPacketSize   int                   // max size of datagram in bytes

@@ -17,6 +17,7 @@ package jaeger
 // HeadersConfig contains the values for the header keys that Jaeger will use.
 // These values may be either custom or default depending on whether custom
 // values were provided via a configuration.
+// header 字符串定义
 type HeadersConfig struct {
 	// JaegerDebugHeader is the name of HTTP header or a TextMap carrier key which,
 	// if found in the carrier, forces the trace to be sampled as "debug" trace.

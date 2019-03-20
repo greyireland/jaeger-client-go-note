@@ -19,6 +19,7 @@ const (
 )
 
 // Restriction determines whether a baggage key is allowed and contains any restrictions on the baggage value.
+// baggage 限制
 type Restriction struct {
 	keyAllowed     bool
 	maxValueLength int

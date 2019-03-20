@@ -26,6 +26,7 @@ import (
 )
 
 // Reporter is called by the tracer when a span is completed to report the span to the tracing collector.
+// 报告器 把数据发给collector
 type Reporter interface {
 	// Report submits a new span to collectors, possibly asynchronously and/or with buffering.
 	Report(span *Span)
@@ -126,7 +127,7 @@ func (r *InMemoryReporter) Reset() {
 }
 
 // ------------------------------
-
+// 组合报告器
 type compositeReporter struct {
 	reporters []Reporter
 }
@@ -158,7 +159,7 @@ const (
 	defaultQueueSize           = 100
 	defaultBufferFlushInterval = 1 * time.Second
 
-	reporterQueueItemSpan reporterQueueItemType = iota
+	reporterQueueItemSpan  reporterQueueItemType = iota
 	reporterQueueItemClose
 )
 

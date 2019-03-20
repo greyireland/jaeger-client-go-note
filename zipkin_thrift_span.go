@@ -40,6 +40,7 @@ var specialTagHandlers = map[string]func(*zipkinSpan, interface{}){
 }
 
 // BuildZipkinThrift builds thrift span based on internal span.
+// 将span注入到底层数据
 func BuildZipkinThrift(s *Span) *z.Span {
 	span := &zipkinSpan{Span: s}
 	span.handleSpecialTags()

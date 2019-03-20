@@ -25,6 +25,7 @@ import (
 type Option func(c *Options)
 
 // Options control behavior of the client.
+// 客户端选项配置
 type Options struct {
 	metrics             metrics.Factory
 	logger              jaeger.Logger

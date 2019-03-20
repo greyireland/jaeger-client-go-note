@@ -23,6 +23,7 @@ const ZipkinSpanFormat = "zipkin-span-format"
 
 // ExtractableZipkinSpan is a type of Carrier used for integration with Zipkin-aware
 // RPC frameworks (like TChannel). It does not support baggage, only trace IDs.
+// rpc zipkin抽出实现
 type ExtractableZipkinSpan interface {
 	TraceID() uint64
 	SpanID() uint64
@@ -32,6 +33,7 @@ type ExtractableZipkinSpan interface {
 
 // InjectableZipkinSpan is a type of Carrier used for integration with Zipkin-aware
 // RPC frameworks (like TChannel). It does not support baggage, only trace IDs.
+// rpc zipkin注入实现
 type InjectableZipkinSpan interface {
 	SetTraceID(traceID uint64)
 	SetSpanID(spanID uint64)
